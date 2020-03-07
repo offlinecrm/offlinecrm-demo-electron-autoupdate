@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
+const {autoUpdater} = require('electron-updater');
 
 let mainWindow;
 
@@ -9,7 +10,8 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: false
+      // NOTE: enable access to NodeJS modules into render process
+      nodeIntegration: true
       // TODO: add script preload.js
       // preload: path.join(__dirname, 'preload.js')
     }
@@ -18,10 +20,14 @@ function createWindow() {
   mainWindow.loadFile('index.html');
 
   // Open the DevTools
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function() {
     mainWindow = null;
+  });
+  // NOTE: run once on window show
+  mainWindow.once('ready-to-show', () => {
+    autoUpdater.checkForUpdatesAndNotify();
   });
 }
 
@@ -47,3 +53,19 @@ app.on('activate', function() {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+ipcMain.on('app_version', event => {
+  event.sender.send('app_version', {version: app.getVersion()});
+});
+
+ipcMain.on('restart_app', () => {
+  autoUpdater.quitAndInstall();
+});
+
+autoUpdater.on('update-available', () => {
+  mainWindow.webContents.send('update_available');
+});
+
+autoUpdater.on('update-downloaded', () => {
+  mainWindow.webContents.send('update_downloaded');
+});
