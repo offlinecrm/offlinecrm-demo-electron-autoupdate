@@ -1,0 +1,8 @@
+{
+  "name": "offlinecrm",
+  "version": "0.0.1",
+  "prvate": true,
+  "packages": ["packages/*"],
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}
