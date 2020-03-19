@@ -1,14 +1,14 @@
 {
   "name": "@offlinecrm/app",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-   "dependencies": {
-    "@offlinecrm/cli": "^0.0.1",
-    "@offlinecrm/utils": "^0.0.1"
+  "dependencies": {
+    "@offlinecrm/cli": "^1.0.0-alpha.0",
+    "@offlinecrm/utils": "^1.0.0-alpha.0"
   },
   "keywords": [],
   "author": "",
