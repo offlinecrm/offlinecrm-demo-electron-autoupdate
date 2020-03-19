@@ -1,0 +1,20 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dist": "electron-builder",
+    "start:electron": "electron .", 
+    "dev:electron": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "8.1.0",
+    "electron-builder": "22.4.0",
+    "electron-wix-msi": "^2.2.0"
+  }
+}

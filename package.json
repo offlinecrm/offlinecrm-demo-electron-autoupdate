@@ -16,9 +16,7 @@
   ],
   "author": "Nikolay Gerzhan <nikolay.grzhan@helpcontrol.ru>",
   "license": "MIT",
-  "devDependencies": {
-    "electron": "8.1.0",
-    "electron-builder": "22.4.0",
+  "devDependencies": { 
     "jest": "^25.1.0",
     "lerna": "^3.20.2"
   },
