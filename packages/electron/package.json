@@ -1,11 +1,11 @@
 {
   "name": "electron",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dist": "electron-builder",
-    "start:electron": "electron .", 
+    "start:electron": "electron .",
     "dev:electron": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
